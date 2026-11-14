@@ -746,7 +746,7 @@
         <button class="need-btn" data-need="quiet-budget" type="button">저소음 · 10만 원 이하</button>
         <button class="need-btn" data-need="lcd-compact" type="button">컬러 LCD · 노브 · 디자인</button>
         <button class="need-btn" data-need="gaming" type="button">저소음 + 8K 게이밍 겸용</button>
-        <button class="need-btn" data-need="authentic" type="button">순정 저소음 적축 · 알루미늄</button>
+        <button class="need-btn" data-need="hotswap" type="button">핫스왑</button>
       </div>
       <div class="need-result" id="needResult">
         <strong>5종 전체 보기 모드입니다.</strong>
@@ -876,7 +876,7 @@
       </article>
 
       <!-- Product 3: AULA F75Max -->
-      <article class="card" data-roles="lcd-compact quiet-budget">
+      <article class="card" data-roles="lcd-compact quiet-budget hotswap">
         <div class="product-img-wrap">
           <span class="match-ribbon">LCD · 디자인 추천</span>
           <img
@@ -994,7 +994,7 @@
       </article>
 
       <!-- Product 5: Keychron K8 MAX ALU -->
-      <article class="card" data-roles="authentic">
+      <article class="card" data-roles="hotswap">
         <div class="product-img-wrap">
           <span class="match-ribbon">순정 적축 · 알루미늄 추천</span>
           <img
@@ -1265,9 +1265,9 @@
         title: "추천: 프리플로우 Archon F1 PRO TKL (89,900원)",
         body: "좋은 점: 8만 원대에 유선 8K 게이밍 응답률과 3모드 무선을 동시에 지원하고 디자인 만족도(91%)가 높습니다. / 아쉬운 점: 소음 설문(55%)이 5종 중 가장 낮습니다."
       },
-      authentic: {
-        title: "추천: 키크론 K8 MAX ALU (155,800원)",
-        body: "좋은 점: 5종 중 유일한 순정 저소음 적축(핫스왑)과 알루미늄 바디를 갖췄고, 편안함(81%) 평가가 가장 높습니다. / 아쉬운 점: 10만 원 예산을 초과(155,800원)하고 후기 수(56개)가 적습니다."
+      hotswap: {
+        title: "핫스왑 확인 제품: AULA F75Max LCD (70,300원) · 키크론 K8 MAX ALU (155,800원)",
+        body: "쿠팡 상세페이지에서 핫스왑 지원이 명시 확인된 2종만 표시했습니다. (큐센 Q87 PBT는 스위치 리무버·여분 스위치가 동봉되어 있으나 페이지 내 '핫스왑' 문구는 미표기되어 제외했습니다.)"
       }
     };
 
@@ -1286,10 +1286,13 @@
 
         cards.forEach((card) => {
           card.classList.remove("is-match", "is-dim");
+          card.style.display = "";
           if (need !== "all") {
             const roles = (card.dataset.roles || "").split(" ");
             if (roles.includes(need)) {
               card.classList.add("is-match");
+            } else if (need === "hotswap") {
+              card.style.display = "none";
             } else {
               card.classList.add("is-dim");
             }
