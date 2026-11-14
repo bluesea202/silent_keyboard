@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>저소음 무선 텐키리스 키보드 5종 비교 · 데스크테리어 픽</title>
+  <style>
+    :root {
+      --ohouse: #35c5f0;
+      --ohouse-dark: #09addb;
+      --ohouse-soft: #effbff;
+      --ohouse-border: #bcecfb;
+      --bg: #f7f9fa;
+      --surface: #ffffff;
+      --surface-muted: #f7f8fa;
+      --text: #2f3438;
+      --text-secondary: #52585e;
+      --text-muted: #828c94;
+      --border: #eaedef;
+      --pro-bg: #f2fbfd;
+      --pro-border: #c5eef9;
+      --pro-text: #0b6e8c;
+      --con-bg: #fff8f3;
+      --con-border: #ffe2cc;
+      --con-text: #9c4a1a;
+      --shadow: 0 2px 12px rgba(47, 52, 56, 0.05);
+      --shadow-hover: 0 8px 24px rgba(53, 197, 240, 0.16);
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Brand Bar */
+    .topbar {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .topbar-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 12px 16px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .brand-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+
+    .brand-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--ohouse);
+      display: inline-block;
+    }
+
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .date-badge {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--ohouse-dark);
+      background: var(--ohouse-soft);
+      border: 1px solid var(--ohouse-border);
+      padding: 5px 11px;
+      border-radius: 999px;
+    }
+
+    .print-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 36px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .print-btn:hover {
+      border-color: var(--ohouse);
+      color: var(--ohouse-dark);
+      background: var(--ohouse-soft);
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 20px 16px 56px;
+    }
+
+    /* Hero */
+    .hero {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+      box-shadow: var(--shadow);
+      margin-bottom: 16px;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--ohouse-dark);
+      background: var(--ohouse-soft);
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 1.45rem;
+      line-height: 1.38;
+      letter-spacing: -0.025em;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .hero-desc {
+      font-size: 0.94rem;
+      color: var(--text-secondary);
+    }
+
+    /* Need Filter Panel */
+    .need-panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      margin-bottom: 24px;
+    }
+
+    .need-panel-title {
+      font-size: 0.96rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .need-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .need-btn {
+      min-height: 40px;
+      padding: 8px 15px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-secondary);
+      font-size: 0.86rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .need-btn:hover {
+      border-color: var(--ohouse);
+      color: var(--ohouse-dark);
+    }
+
+    .need-btn.active {
+      background: var(--ohouse);
+      border-color: var(--ohouse);
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    .need-result {
+      background: var(--ohouse-soft);
+      border: 1px solid var(--ohouse-border);
+      border-radius: 12px;
+      padding: 13px 15px;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    .need-result strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.95rem;
+      color: #0b6e8c;
+    }
+
+    /* Section Title */
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin: 26px 0 14px;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    /* Cards Grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+    }
+
+    .card.is-match {
+      border-color: var(--ohouse);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .card.is-dim {
+      opacity: 0.62;
+    }
+
+    .product-img-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .product-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.25s ease;
+    }
+
+    .card:hover .product-img-wrap img {
+      transform: scale(1.03);
+    }
+
+    .match-ribbon {
+      display: none;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: #ffffff;
+      background: var(--ohouse);
+      padding: 5px 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(53, 197, 240, 0.35);
+      z-index: 2;
+    }
+
+    .card.is-match .match-ribbon {
+      display: inline-block;
+    }
+
+    .rocket-chip {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--ohouse-dark);
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid var(--ohouse-border);
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+
+    .img-fallback {
+      display: none;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      padding: 16px;
+      text-align: center;
+    }
+
+    .card-header {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .card-brand {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .card-title {
+      font-size: 1.04rem;
+      font-weight: 700;
+      line-height: 1.42;
+      color: var(--text);
+    }
+
+    .card-subtitle {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    /* Ohouse-style Price & Rating */
+    .price-review-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 10px 12px;
+      background: var(--surface-muted);
+      border-radius: 10px;
+    }
+
+    .price-val {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+
+    .review-val {
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+    }
+
+    .review-star {
+      color: var(--ohouse);
+      margin-right: 2px;
+    }
+
+    /* Pros & Cons */
+    .pros-cons {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .pc-box {
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    .pc-pro {
+      background: var(--pro-bg);
+      border: 1px solid var(--pro-border);
+      color: var(--pro-text);
+    }
+
+    .pc-con {
+      background: var(--con-bg);
+      border: 1px solid var(--con-border);
+      color: var(--con-text);
+    }
+
+    .pc-box strong {
+      display: block;
+      font-size: 0.78rem;
+      margin-bottom: 3px;
+    }
+
+    .pc-box ul {
+      padding-left: 16px;
+    }
+
+    /* Survey Badges */
+    .survey-box {
+      border-top: 1px solid var(--border);
+      padding-top: 10px;
+    }
+
+    .survey-title {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .survey-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .survey-tag {
+      font-size: 0.76rem;
+      background: var(--surface-muted);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 3px 9px;
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+
+    .survey-tag.highlight {
+      background: var(--ohouse-soft);
+      border-color: var(--ohouse-border);
+      color: var(--ohouse-dark);
+      font-weight: 700;
+    }
+
+    /* Buttons */
+    .card-actions {
+      margin-top: auto;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 44px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-decoration: none;
+      text-align: center;
+      transition: background-color 0.15s ease;
+    }
+
+    .btn-primary {
+      background: var(--ohouse);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: var(--ohouse-dark);
+    }
+
+    /* Comparison Table */
+    .table-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+      width: 100%;
+      min-width: 920px;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    th, td {
+      padding: 13px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--surface-muted);
+      font-weight: 700;
+      color: var(--text-secondary);
+      white-space: nowrap;
+    }
+
+    tr:last-child td, tr:last-child th {
+      border-bottom: none;
+    }
+
+    .table-price {
+      font-weight: 800;
+      font-size: 0.98rem;
+      color: var(--text);
+    }
+
+    .table-link {
+      color: var(--ohouse-dark);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .table-link:hover {
+      text-decoration: underline;
+    }
+
+    .scroll-hint {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    /* Switch Guide Section */
+    .switch-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 14px;
+    }
+
+    .switch-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .switch-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 16px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .switch-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .switch-name {
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .switch-type {
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .type-silent {
+      background: var(--ohouse-soft);
+      border: 1px solid var(--ohouse-border);
+      color: var(--ohouse-dark);
+    }
+
+    .type-linear {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      color: #166534;
+    }
+
+    .type-tactile {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      color: #92400e;
+    }
+
+    .type-clicky {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      color: #b91c1c;
+    }
+
+    .switch-text {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    footer {
+      margin-top: 28px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .footer-warn {
+      color: var(--con-text);
+      font-weight: 700;
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        padding: 28px 24px 64px;
+      }
+
+      h1 {
+        font-size: 1.7rem;
+      }
+
+      .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .switch-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .scroll-hint {
+        display: none;
+      }
+    }
+
+    @media (min-width: 1080px) {
+      .cards-grid,
+      .switch-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* Print / PDF Styles */
+    @media print {
+      * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      body {
+        background: #ffffff;
+      }
+
+      .topbar {
+        position: static;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .print-btn,
+      .need-buttons,
+      .scroll-hint {
+        display: none !important;
+      }
+
+      .container {
+        max-width: 100%;
+        padding: 12px 0;
+      }
+
+      .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .card,
+      .hero,
+      .need-panel,
+      .table-wrap,
+      .switch-card {
+        box-shadow: none;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .card.is-dim {
+        opacity: 1;
+      }
+
+      .table-wrap {
+        overflow: visible;
+      }
+
+      table {
+        min-width: 100%;
+        font-size: 0.78rem;
+      }
+
+      th, td {
+        padding: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand-mark">
+        <span class="brand-dot" aria-hidden="true"></span>
+        데스크테리어 · 저소음 키보드 비교
+      </div>
+      <div class="topbar-actions">
+        <span class="date-badge">확인일 2026-11-14</span>
+        <button class="print-btn" type="button" onclick="window.print()">🖨️ 인쇄 / PDF 저장</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <span class="hero-tag">쿠팡 실거래가 · 구매자 리뷰 설문 기반</span>
+      <h1>내 책상에 딱 맞는 저소음 무선 텐키리스 키보드 5종</h1>
+      <p class="hero-desc">
+        실제 구매자 설문과 스펙을 기준으로 <b>좋은 점과 아쉬운 점</b>을 담백하게 정리했습니다. 원하는 조건을 누르면 내 기준에 맞는 제품이 강조됩니다.
+      </p>
+    </section>
+
+    <section class="need-panel" aria-label="필요한 기능 기준 선택">
+      <div class="need-panel-title">어떤 기준으로 고르시나요?</div>
+      <div class="need-buttons" role="tablist">
+        <button class="need-btn active" data-need="quiet-budget" type="button">무조건 저소음 · 10만 원 이하</button>
+        <button class="need-btn" data-need="all" type="button">전체 5종 보기</button>
+        <button class="need-btn" data-need="lcd-compact" type="button">컬러 LCD · 노브 · 디자인</button>
+        <button class="need-btn" data-need="gaming" type="button">저소음 + 8K 게이밍 겸용</button>
+        <button class="need-btn" data-need="authentic" type="button">순정 저소음 적축 · 알루미늄</button>
+      </div>
+      <div class="need-result" id="needResult">
+        <strong>내 기준(무조건 저소음 + 10만 원 이하) 추천: 큐센 Q87 PBT (47,310원) · AULA F87 Pro (67,000원)</strong>
+        소음 설문 1위는 <b>큐센 Q87 PBT(‘조용함’ 71%, 47,310원)</b>, 최다 후기·키감 검증은 <b>AULA F87 Pro(‘조용함’ 65%, 후기 2,890개, 67,000원)</b>입니다.
+      </div>
+    </section>
+
+    <h2 class="section-title">5종 상세 비교 (가격 낮은 순)</h2>
+    <section class="cards-grid" aria-label="제품 비교 카드">
+      <!-- Product 1: QSENN Q87 PBT -->
+      <article class="card is-match" data-roles="quiet-budget">
+        <div class="product-img-wrap">
+          <span class="match-ribbon">내 기준 추천 · 조용함 71%</span>
+          <img
+            src="https://thumbnail.coupangcdn.com/thumbnails/remote/640x640ex/image/retail/images/2025/01/07/17/7/c7fc6d23-6df1-4ae5-8826-8ef8c7684271.jpg"
+            alt="큐센 풀윤활 가스켓 유무선 기계식 키보드 크림치즈 QSENN Q87 PBT 하이무 저소음 바다소금축"
+            loading="lazy"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+          />
+          <div class="img-fallback">이미지를 불러오지 못했습니다.</div>
+          <span class="rocket-chip">로켓배송</span>
+        </div>
+
+        <div class="card-header">
+          <span class="card-brand">큐센 Q87 PBT · 풀윤활 가스켓</span>
+          <h3 class="card-title">큐센 풀윤활 가스켓 유무선 기계식 키보드 (크림치즈, QSENN Q87 PBT)</h3>
+          <p class="card-subtitle">하이무 저소음 바다소금축 · 87키 표준 텐키리스</p>
+        </div>
+
+        <div class="price-review-row">
+          <span class="price-val">47,310원</span>
+          <span class="review-val"><span class="review-star">★</span>4.5 · 리뷰 344</span>
+        </div>
+
+        <div class="pros-cons">
+          <div class="pc-box pc-pro">
+            <strong>좋은 점</strong>
+            <ul>
+              <li><b>5종 중 최저가(47,310원) & 조용함 설문 1위(71%)</b></li>
+              <li>풀윤활 가스켓 + PBT 한영 정각 + 여분 스위치·리무버 포함</li>
+              <li>2.4GHz · 블루투스 · Type-C 유선 3모드 지원</li>
+            </ul>
+          </div>
+          <div class="pc-box pc-con">
+            <strong>아쉬운 점 (미확인 포함)</strong>
+            <ul>
+              <li>평점(4.5점)과 편안함(‘보통이에요’ 46%)이 타 4종보다 낮음</li>
+              <li>백라이트 지원 여부 미표기 (확인 필요)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="survey-box">
+          <div class="survey-title">구매자 체감 설문 (344개)</div>
+          <div class="survey-tags">
+            <span class="survey-tag highlight">조용함 71%</span>
+            <span class="survey-tag">디자인 80%</span>
+            <span class="survey-tag">부드러움 65%</span>
+            <span class="survey-tag">가성비 57%</span>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <a class="btn btn-primary" href="https://www.coupang.com/vp/products/8540008040?itemId=24724605888&vendorItemId=91733769839" target="_blank" rel="noopener noreferrer">
+            쿠팡에서 보기 ↗
+          </a>
+        </div>
+      </article>
+
+      <!-- Product 2: AULA F87 Pro -->
+      <article class="card is-match" data-roles="quiet-budget">
+        <div class="product-img-wrap">
+          <span class="match-ribbon">내 기준 추천 · 최다 리뷰 2,890</span>
+          <img
+            src="https://thumbnail.coupangcdn.com/thumbnails/remote/640x640ex/image/vendor_inventory/6733/885ec45978511a0d5ada14c794ab620fccefaec2ca333925456365ab67dd.jpg"
+            alt="AULA F87 Pro 독거미 유무선 텐키리스 기계식 키보드 올리비아 화이트 저소음 피치축"
+            loading="lazy"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+          />
+          <div class="img-fallback">이미지를 불러오지 못했습니다.</div>
+          <span class="rocket-chip">로켓배송</span>
+        </div>
+
+        <div class="card-header">
+          <span class="card-brand">AULA F87 Pro 독거미 · 베스트셀러</span>
+          <h3 class="card-title">AULA F87 Pro 독거미 유무선 텐키리스 기계식 키보드 (올리비아 화이트)</h3>
+          <p class="card-subtitle">저소음 피치축 · 한글 정각 정품 · 87키</p>
+        </div>
+
+        <div class="price-review-row">
+          <span class="price-val">67,000원</span>
+          <span class="review-val"><span class="review-star">★</span>5.0 · 리뷰 2,890</span>
+        </div>
+
+        <div class="pros-cons">
+          <div class="pc-box pc-pro">
+            <strong>좋은 점</strong>
+            <ul>
+              <li><b>리뷰 2,890개(★5.0):</b> 정숙성(65%)·부드러운 키감(78%·1위) 검증</li>
+              <li>67,000원에 한글 정각, RGB 백라이트, 3모드 무선 모두 포함</li>
+            </ul>
+          </div>
+          <div class="pc-box pc-con">
+            <strong>아쉬운 점 (미확인 포함)</strong>
+            <ul>
+              <li>순정 저소음 적축이 아닌 ‘저소음 피치축’(저소음 리니어)</li>
+              <li>알루미늄 바디 및 유선 8K 지원 여부 미확인</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="survey-box">
+          <div class="survey-title">구매자 체감 설문 (2,890개)</div>
+          <div class="survey-tags">
+            <span class="survey-tag highlight">조용함 65%</span>
+            <span class="survey-tag">디자인 85%</span>
+            <span class="survey-tag highlight">부드러움 78%</span>
+            <span class="survey-tag">가성비 56%</span>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <a class="btn btn-primary" href="https://www.coupang.com/vp/products/8918881497?itemId=23546038307&vendorItemId=91091632562" target="_blank" rel="noopener noreferrer">
+            쿠팡에서 보기 ↗
+          </a>
+        </div>
+      </article>
+
+      <!-- Product 3: AULA F75Max -->
+      <article class="card is-dim" data-roles="lcd-compact quiet-budget">
+        <div class="product-img-wrap">
+          <span class="match-ribbon">LCD · 디자인 추천</span>
+          <img
+            src="https://thumbnail.coupangcdn.com/thumbnails/remote/640x640ex/image/retail/images/2025/05/02/11/0/65bf1cad-b7cf-48db-b10c-b206ac2b6400.jpg"
+            alt="AULA 유무선 독거미 LCD 기계식 텐키리스 키보드 KTT 스카이 블랙 F75Max 저소음 바다축"
+            loading="lazy"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+          />
+          <div class="img-fallback">이미지를 불러오지 못했습니다.</div>
+          <span class="rocket-chip">로켓배송</span>
+        </div>
+
+        <div class="card-header">
+          <span class="card-brand">AULA F75Max · 컬러 LCD / 노브</span>
+          <h3 class="card-title">AULA 유무선 독거미 LCD 기계식 텐키리스 키보드 KTT (스카이 블랙, F75Max)</h3>
+          <p class="card-subtitle">저소음 바다축 · 75% 컴팩트 · LCD & 메탈 노브</p>
+        </div>
+
+        <div class="price-review-row">
+          <span class="price-val">70,300원</span>
+          <span class="review-val"><span class="review-star">★</span>5.0 · 리뷰 334</span>
+        </div>
+
+        <div class="pros-cons">
+          <div class="pc-box pc-pro">
+            <strong>좋은 점</strong>
+            <ul>
+              <li>7만 원대에 <b>컬러 LCD + 메탈 노브</b>·핫스왑·한영 각인 지원</li>
+              <li><b>디자인 만족도 92%(5종 중 1위)</b>, 컴팩트한 75% 배열</li>
+            </ul>
+          </div>
+          <div class="pc-box pc-con">
+            <strong>아쉬운 점 (미확인 포함)</strong>
+            <ul>
+              <li>소음 설문(59%)이 큐센 Q87(71%)·F87 Pro(65%)보다 낮음</li>
+              <li>표준 87키가 아닌 75% 컴팩트 배열 (가성비 ‘적당’ 50%)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="survey-box">
+          <div class="survey-title">구매자 체감 설문 (334개)</div>
+          <div class="survey-tags">
+            <span class="survey-tag">조용함 59%</span>
+            <span class="survey-tag highlight">디자인 92%</span>
+            <span class="survey-tag">부드러움 71%</span>
+            <span class="survey-tag">편안함 67%</span>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <a class="btn btn-primary" href="https://www.coupang.com/vp/products/8750073055?itemId=25437026853&vendorItemId=92429972173" target="_blank" rel="noopener noreferrer">
+            쿠팡에서 보기 ↗
+          </a>
+        </div>
+      </article>
+
+      <!-- Product 4: Preflow Archon F1 PRO TKL -->
+      <article class="card is-dim" data-roles="gaming">
+        <div class="product-img-wrap">
+          <span class="match-ribbon">8K 게이밍 추천</span>
+          <img
+            src="https://thumbnail.coupangcdn.com/thumbnails/remote/640x640ex/image/retail/images/2025/07/09/13/1/6cec33c0-aa7a-46ac-bc21-d7819964487b.jpg"
+            alt="프리플로우 Archon F1 PRO TKL 유무선 8K 게이밍 기계식 텐키리스 키보드 ECLIPSE"
+            loading="lazy"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+          />
+          <div class="img-fallback">이미지를 불러오지 못했습니다.</div>
+          <span class="rocket-chip">로켓배송</span>
+        </div>
+
+        <div class="card-header">
+          <span class="card-brand">프리플로우 Archon F1 PRO · 8K 게이밍</span>
+          <h3 class="card-title">프리플로우 Archon F1 PRO TKL 유무선 8K 기계식 텐키리스 (ECLIPSE)</h3>
+          <p class="card-subtitle">저소음피치축V3 · 87키 TKL (디딤돌축 SODA 87,900원)</p>
+        </div>
+
+        <div class="price-review-row">
+          <span class="price-val">89,900원</span>
+          <span class="review-val"><span class="review-star">★</span>5.0 · 리뷰 532</span>
+        </div>
+
+        <div class="pros-cons">
+          <div class="pc-box pc-pro">
+            <strong>좋은 점</strong>
+            <ul>
+              <li>8만 원대에 <b>유선 8K 폴링레이트 게이밍</b> + 3모드 무선 겸용</li>
+              <li>디자인 만족도 91%, 가성비 우수(57%), 리뷰 532개</li>
+            </ul>
+          </div>
+          <div class="pc-box pc-con">
+            <strong>아쉬운 점 (미확인 포함)</strong>
+            <ul>
+              <li>‘생각보다 조용해요’ 설문 <b>55%</b>로 5종 중 가장 낮음</li>
+              <li>한영/영문 각인 여부 상세페이지 확인 필요</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="survey-box">
+          <div class="survey-title">구매자 체감 설문 (532개)</div>
+          <div class="survey-tags">
+            <span class="survey-tag">조용함 55%</span>
+            <span class="survey-tag highlight">디자인 91%</span>
+            <span class="survey-tag">편안함 65%</span>
+            <span class="survey-tag">가성비 57%</span>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <a class="btn btn-primary" href="https://www.coupang.com/vp/products/8904188939?itemId=26003569844&vendorItemId=92985675118" target="_blank" rel="noopener noreferrer">
+            쿠팡에서 보기 ↗
+          </a>
+        </div>
+      </article>
+
+      <!-- Product 5: Keychron K8 MAX ALU -->
+      <article class="card is-dim" data-roles="authentic">
+        <div class="product-img-wrap">
+          <span class="match-ribbon">순정 적축 · 알루미늄 추천</span>
+          <img
+            src="https://thumbnail.coupangcdn.com/thumbnails/remote/640x640ex/image/retail/images/66154130389048-4d67eaf1-5caf-4493-b138-7eab970a4f68.jpg"
+            alt="키크론 K8 MAX ALU 유무선 RGB 기계식 텐키리스 키보드 레트로"
+            loading="lazy"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+          />
+          <div class="img-fallback">이미지를 불러오지 못했습니다.</div>
+          <span class="rocket-chip">로켓배송</span>
+        </div>
+
+        <div class="card-header">
+          <span class="card-brand">Keychron K8 MAX · 순정 저소음 적축</span>
+          <h3 class="card-title">키크론 K8 MAX ALU 유무선 RGB 기계식 텐키리스 (레트로, 저소음 적축)</h3>
+          <p class="card-subtitle">모델명: K8M-M6-KR · 한영 각인 · 87키</p>
+        </div>
+
+        <div class="price-review-row">
+          <span class="price-val">155,800원</span>
+          <span class="review-val"><span class="review-star">★</span>5.0 · 리뷰 56</span>
+        </div>
+
+        <div class="pros-cons">
+          <div class="pc-box pc-pro">
+            <strong>좋은 점</strong>
+            <ul>
+              <li>5종 중 유일한 <b>순정 저소음 적축(핫스왑) + 알루미늄(ALU) 바디</b></li>
+              <li>인체공학적 편안함 <b>81%(1위)</b> · 디자인 90% · 한영 각인</li>
+            </ul>
+          </div>
+          <div class="pc-box pc-con">
+            <strong>아쉬운 점 (미확인 포함)</strong>
+            <ul>
+              <li><b>10만 원 예산 초과(155,800원)</b> · 가성비 ‘적당’ 61%</li>
+              <li>리뷰 수 적음(56개) & 8K 게이밍 스펙 미확인</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="survey-box">
+          <div class="survey-title">구매자 체감 설문 (56개)</div>
+          <div class="survey-tags">
+            <span class="survey-tag">조용함 61%</span>
+            <span class="survey-tag">디자인 90%</span>
+            <span class="survey-tag highlight">편안함 81%</span>
+            <span class="survey-tag">가성비 적당 61%</span>
+          </div>
+        </div>
+
+        <div class="card-actions">
+          <a class="btn btn-primary" href="https://www.coupang.com/vp/products/8598481580?itemId=25282265219&vendorItemId=92277823437" target="_blank" rel="noopener noreferrer">
+            쿠팡에서 보기 ↗
+          </a>
+        </div>
+      </article>
+    </section>
+
+    <h2 class="section-title">5종 한눈에 스펙 · 설문 비교표</h2>
+    <p class="scroll-hint">← 모바일에서는 표를 좌우로 밀어서 볼 수 있습니다 →</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>비교 기준</th>
+            <th>큐센 Q87 PBT</th>
+            <th>AULA F87 Pro</th>
+            <th>AULA F75Max LCD</th>
+            <th>Archon F1 PRO TKL</th>
+            <th>키크론 K8 MAX ALU</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>쿠팡 가격</th>
+            <td class="table-price">47,310원</td>
+            <td class="table-price">67,000원</td>
+            <td class="table-price">70,300원</td>
+            <td class="table-price">89,900원</td>
+            <td class="table-price">155,800원</td>
+          </tr>
+          <tr>
+            <th>10만 원 이하</th>
+            <td>O (최저가)</td>
+            <td>O</td>
+            <td>O</td>
+            <td>O</td>
+            <td>X (예산 초과)</td>
+          </tr>
+          <tr>
+            <th>평점 / 리뷰</th>
+            <td>★ 4.5 (344개)</td>
+            <td>★ 5.0 (2,890개)</td>
+            <td>★ 5.0 (334개)</td>
+            <td>★ 5.0 (532개)</td>
+            <td>★ 5.0 (56개)</td>
+          </tr>
+          <tr>
+            <th>조용함 설문</th>
+            <td><b>71% (1위)</b></td>
+            <td><b>65% (2위)</b></td>
+            <td>59%</td>
+            <td>55%</td>
+            <td>61%</td>
+          </tr>
+          <tr>
+            <th>스위치</th>
+            <td>하이무 저소음 바다소금축</td>
+            <td>저소음 피치축</td>
+            <td>KTT 저소음 바다축</td>
+            <td>저소음피치축V3</td>
+            <td>순정 저소음 적축</td>
+          </tr>
+          <tr>
+            <th>배열 / 특징</th>
+            <td>87키 · 풀윤활 가스켓 · PBT</td>
+            <td>87키 · 한글 정각 · RGB</td>
+            <td>75% · 컬러 LCD · 메탈 노브</td>
+            <td>87키 · 유선 8K 게이밍</td>
+            <td>87키 · 알루미늄(ALU) 바디</td>
+          </tr>
+          <tr>
+            <th>백라이트 / 각인</th>
+            <td>백라이트 미확인 · 한영 정각</td>
+            <td>RGB · 한글 정각 정품</td>
+            <td>RGB · 한영 각인</td>
+            <td>백라이트 · 각인 확인 필요</td>
+            <td>RGB · 한영 각인</td>
+          </tr>
+          <tr>
+            <th>상품 링크</th>
+            <td><a class="table-link" href="https://www.coupang.com/vp/products/8540008040?itemId=24724605888&vendorItemId=91733769839" target="_blank" rel="noopener noreferrer">쿠팡 바로가기 ↗</a></td>
+            <td><a class="table-link" href="https://www.coupang.com/vp/products/8918881497?itemId=23546038307&vendorItemId=91091632562" target="_blank" rel="noopener noreferrer">쿠팡 바로가기 ↗</a></td>
+            <td><a class="table-link" href="https://www.coupang.com/vp/products/8750073055?itemId=25437026853&vendorItemId=92429972173" target="_blank" rel="noopener noreferrer">쿠팡 바로가기 ↗</a></td>
+            <td><a class="table-link" href="https://www.coupang.com/vp/products/8904188939?itemId=26003569844&vendorItemId=92985675118" target="_blank" rel="noopener noreferrer">쿠팡 바로가기 ↗</a></td>
+            <td><a class="table-link" href="https://www.coupang.com/vp/products/8598481580?itemId=25282265219&vendorItemId=92277823437" target="_blank" rel="noopener noreferrer">쿠팡 바로가기 ↗</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <section aria-label="다양한 기계식 키보드 축 가이드">
+      <h2 class="section-title">다양한 기계식 키보드 축 간단 가이드 (12종)</h2>
+      <p class="switch-desc">
+        기계식 키보드는 어떤 ‘축(스위치)’이 들어가느냐에 따라 소음과 손끝 느낌이 크게 달라집니다. 아래 12가지 대표 축을 참고해 내 취향과 환경에 맞는 축을 골라보세요.
+      </p>
+      <div class="switch-grid">
+        <article class="switch-card">
+          <div class="switch-head">
+            <span class="switch-name">저소음 적축 (Silent Red)</span>
+            <span class="switch-type type-silent">저소음 리니어</span>
+          </div>
+          <p class="switch-text">적축 내부에 소음 감쇠 댐퍼를 넣어 바닥·복귀 소음을 줄인 축. 걸림 없이 부드럽고 조용해 사무실·도서관용 정석으로 꼽힙니다.</p>
+        </article>
+
+        <article class="switch-card">
+          <div class="switch-head">
+            <span class="switch-name">피치축 / 저소음 피치축</span>
+            <span class="switch-type type-silent">저소음 리니어</span>
+          </div>
+          <p class="switch-text">오테뮤·AULA 등에서 많이 쓰이는 가벼운 저소음 리니어 계열. 폭신한 바닥감과 정숙한 소음 덕분에 가성비 저소음 키보드에서 인기가 높습니다.</p>
+        </article>
+
+        <article class="switch-card">
+          <div class="switch-head">
+            <span class="switch-name">바다소금축 / 저소음 바다소금축</span>
+            <span class="switch-type type-silent">리니어 · 저소음</span>
+          </div>
+          <p class="switch-text">하이무 등에서 선보인 특주 축. 일반 바다소금축은 경쾌한 ‘도각’ 타건음이 특징이고, 저소음 바다소금축은 댐퍼를 넣어 매우 조용하게 다듬은 버전입니다.</p>
+        </article>
+
+        <article class="switch-card">
+          <div class="switch-head">
+            <span class="switch-name">라임축 / 저소음 라임축</span>
+            <span class="switch-type type-silent">저소음 택타일</span>
+          </div>
+          <p class="switch-text">피치축처럼 소음은 억제하면서도, 눌릴 때 갈축처럼 가벼운 걸림감(구분감)이 느껴져 심심하지 않은 타건감을 주는 저소음 축입니다.</p>
+        </article>
+
+        <article class="switch-card">
+          <div class="switch-head">
+            <span class="switch-name">적축 (Red)</span>
+            <span class="switch-type type-linear">리니어</span>
+          </div>
+          <p class="switch-text">중간 걸림 없이 위에서 아래로 쑥 내려가는 기본 리니어 축. 가볍고 손가락 피로가 적어 게임과 장시간 타이핑 모두에 무난합니다.</p>
+        </article>
+
+        <article class="switch-card">
+          <div class="switch-head">
+            <span class="switch-name">황축 (Yellow)</span>
+            <span class="switch-type type-linear">리니어</span>
+          </div>
+          <p class="switch-text">적축보다 살짝 더 탄력 있고 쫀득한 반발력을 가진 리니어 축. 부드럽게 미끄러지면서도 적축보다 덜 가벼워 게이밍·타이핑 겸용으로 인기입니다.</p>
+        </article>
+
+        <article class="switch-card">
+          <div class="switch-head">
+            <span class="switch-name">흑축 (Black)</span>
+            <span class="switch-type type-linear">리니어 (고압)</span>
+          </div>
+          <p class="switch-text">적축처럼 걸림은 없지만 스프링 압력이 높아 묵직하게 눌리는 축. 오타가 적고 탄탄한 키감을 좋아하는 분에게 맞지만 손 힘이 더 필요합니다.</p>
+        </article>
+
+        <article class="switch-card">
+          <div class="switch-head">
+            <span class="switch-name">소금축 (Sea Salt / Ice Salt 등)</span>
+            <span class="switch-type type-linear">리니어</span>
+          </div>
+          <p class="switch-text">깔끔하고 정갈한 ‘조약돌/도각’ 계열 타건음으로 사랑받는 커스텀 리니어 축. 맑고 단정한 소리를 원할 때 많이 선택합니다.</p>
+        </article>
+
+        <article class="switch-card">
+          <div class="switch-head">
+            <span class="switch-name">치즈축 (Cheese / Cream Cheese)</span>
+            <span class="switch-type type-linear">리니어</span>
+          </div>
+          <p class="switch-text">크리미하고 부드러운 키감과 낮고 둥근 ‘보글·도각’ 톤의 타건음을 내는 커스텀 리니어 계열 축(제조사별 세부 압력·소리 성향 상이).</p>
+        </article>
+
+        <article class="switch-card">
+          <div class="switch-head">
+            <span class="switch-name">갈축 (Brown)</span>
+            <span class="switch-type type-tactile">택타일 (걸림)</span>
+          </div>
+          <p class="switch-text">눌리는 중간에 살짝 ‘걸리는’ 구분감이 있으면서 청축보다 조용한 만능 밸런스 축. 기계식 특유의 손맛과 무난한 소음 사이에서 많이 고릅니다.</p>
+        </article>
+
+        <article class="switch-card">
+          <div class="switch-head">
+            <span class="switch-name">청축 (Blue)</span>
+            <span class="switch-type type-clicky">클릭 (찰칵)</span>
+          </div>
+          <p class="switch-text">‘찰칵’ 하는 경쾌한 클릭음과 확실한 구분감이 매력인 대표 축. 타건 재미는 크지만 소음이 매우 커서 사무실·공공장소에는 적합하지 않습니다.</p>
+        </article>
+
+        <article class="switch-card">
+          <div class="switch-head">
+            <span class="switch-name">백축 (White / Clear)</span>
+            <span class="switch-type type-clicky">클릭 / 넌클릭</span>
+          </div>
+          <p class="switch-text">브랜드에 따라 성격이 나뉩니다. 카일 박스 백축은 청축보다 더 또렷한 클릭음, 체리 백축(클리어)은 갈축보다 묵직한 걸림감을 줍니다.</p>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      <span class="footer-warn">※ 구매 전에는 반드시 각 쿠팡 상품 페이지에서 최신 가격·할인 쿠폰·옵션(스위치/색상)을 다시 확인해 주세요.</span>
+      <span>확인 날짜: 2026-11-14 (KST) · 쿠팡 상품 상세페이지 직접 조회 기준 (5종 모두 로켓배송)</span>
+      <span>※ 확인되지 않은 세부 스펙이나 실제 데시벨(dB) 수치는 임의로 작성하지 않고 ‘미확인’ 또는 ‘확인 필요’로 표시했습니다.</span>
+    </footer>
+  </main>
+
+  <script>
+    const descriptions = {
+      "quiet-budget": {
+        title: "내 기준(무조건 저소음 + 10만 원 이하) 추천: 큐센 Q87 PBT (47,310원) · AULA F87 Pro (67,000원)",
+        body: "소음 설문 1위는 큐센 Q87 PBT(‘조용함’ 71%, 47,310원), 최다 후기·키감 검증은 AULA F87 Pro(‘조용함’ 65%, 후기 2,890개, 67,000원)입니다."
+      },
+      all: {
+        title: "5종 전체 보기 모드입니다.",
+        body: "4만 원대 초가성비(큐센 Q87 PBT)부터 LCD·노브(F75Max), 8K 게이밍(Archon F1 PRO), 알루미늄 순정 저소음 적축(키크론 K8 MAX)까지 한눈에 비교할 수 있습니다."
+      },
+      "lcd-compact": {
+        title: "추천: AULA F75Max 독거미 LCD (70,300원)",
+        body: "좋은 점: 7만 원대에 컬러 LCD 디스플레이, 메탈 노브, 디자인 만족도 92%(1위), 핫스왑·한영 각인을 갖췄습니다. / 아쉬운 점: 소음 설문(59%)은 큐센·F87 Pro보다 낮고 75% 컴팩트 배열입니다."
+      },
+      gaming: {
+        title: "추천: 프리플로우 Archon F1 PRO TKL (89,900원)",
+        body: "좋은 점: 8만 원대에 유선 8K 게이밍 응답률과 3모드 무선을 동시에 지원하고 디자인 만족도(91%)가 높습니다. / 아쉬운 점: 소음 설문(55%)이 5종 중 가장 낮습니다."
+      },
+      authentic: {
+        title: "추천: 키크론 K8 MAX ALU (155,800원)",
+        body: "좋은 점: 5종 중 유일한 순정 저소음 적축(핫스왑)과 알루미늄 바디를 갖췄고, 편안함(81%) 평가가 가장 높습니다. / 아쉬운 점: 10만 원 예산을 초과(155,800원)하고 후기 수(56개)가 적습니다."
+      }
+    };
+
+    const buttons = document.querySelectorAll(".need-btn");
+    const cards = document.querySelectorAll(".card");
+    const resultBox = document.getElementById("needResult");
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const need = btn.dataset.need;
+        buttons.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        const info = descriptions[need];
+        resultBox.innerHTML = `<strong>${info.title}</strong>${info.body}`;
+
+        cards.forEach((card) => {
+          card.classList.remove("is-match", "is-dim");
+          if (need !== "all") {
+            const roles = (card.dataset.roles || "").split(" ");
+            if (roles.includes(need)) {
+              card.classList.add("is-match");
+            } else {
+              card.classList.add("is-dim");
+            }
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+# OS & Explorer
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Editors & IDE
+.vscode/
+.idea/
+*.swp
+
+# Environment & Secrets
+.env
+.env.*
+*.pem
+*.key
+*secret*
+*token*
+
+# Logs & Temporary files
+*.log
+*.tmp
+*.bak
+scratch/
