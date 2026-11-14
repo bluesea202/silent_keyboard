@@ -1291,10 +1291,8 @@
             const roles = (card.dataset.roles || "").split(" ");
             if (roles.includes(need)) {
               card.classList.add("is-match");
-            } else if (need === "hotswap") {
-              card.style.display = "none";
             } else {
-              card.classList.add("is-dim");
+              card.style.display = "none";
             }
           }
         });
