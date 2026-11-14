@@ -303,6 +303,25 @@
       display: inline-block;
     }
 
+    .match-ribbon-group {
+      display: none;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      gap: 6px;
+      flex-wrap: wrap;
+      z-index: 2;
+    }
+
+    .card.is-match .match-ribbon-group {
+      display: flex;
+    }
+
+    .match-ribbon-group .match-ribbon {
+      position: static;
+      display: inline-block;
+    }
+
     .rocket-chip {
       position: absolute;
       bottom: 10px;
@@ -878,7 +897,10 @@
       <!-- Product 3: AULA F75Max -->
       <article class="card" data-roles="lcd-compact quiet-budget hotswap">
         <div class="product-img-wrap">
-          <span class="match-ribbon">LCD · 노브</span>
+          <div class="match-ribbon-group">
+            <span class="match-ribbon">LCD · 노브</span>
+            <span class="match-ribbon">핫스왑</span>
+          </div>
           <img
             src="https://thumbnail.coupangcdn.com/thumbnails/remote/640x640ex/image/retail/images/2025/05/02/11/0/65bf1cad-b7cf-48db-b10c-b206ac2b6400.jpg"
             alt="AULA 유무선 독거미 LCD 기계식 텐키리스 키보드 KTT 스카이 블랙 F75Max 저소음 바다축"
@@ -996,7 +1018,7 @@
       <!-- Product 5: Keychron K8 MAX ALU -->
       <article class="card" data-roles="hotswap">
         <div class="product-img-wrap">
-          <span class="match-ribbon">순정 적축 · 알루미늄 추천</span>
+          <span class="match-ribbon">핫스왑</span>
           <img
             src="https://thumbnail.coupangcdn.com/thumbnails/remote/640x640ex/image/retail/images/66154130389048-4d67eaf1-5caf-4493-b138-7eab970a4f68.jpg"
             alt="키크론 K8 MAX ALU 유무선 RGB 기계식 텐키리스 키보드 레트로"
